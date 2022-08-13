@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2076483303544775859}
   - component: {fileID: 196685430518245785}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Inner Color
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 6758731062822531151}
   - component: {fileID: 5309734178671223174}
   - component: {fileID: 6814555951914181625}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Seeker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,9 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1954831dca200f4a97496a75c61bae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  chargeForce: 250
-  chargeTime: 50
+  movSpeed: 6
+  rotSpeed: 35
+  chargeSpeed: 55
+  rechargeTime: 20
   chargeDistanceStart: 5
 --- !u!50 &6758731062822531151
 Rigidbody2D:
@@ -198,8 +199,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
-  m_AngularDrag: 0.05
+  m_LinearDrag: 6
+  m_AngularDrag: 2
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
