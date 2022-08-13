@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 
 public class Seeker : MonoBehaviour {
@@ -7,9 +7,11 @@ public class Seeker : MonoBehaviour {
     public float chargeSpeed = 30.0f, rechargeTime = 10.0f, chargeDistanceStart = 5.0f;
     private Rigidbody2D rb, target;
     private bool isRecharging = false, moving = false;
+    private GameObject manager;
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        manager = GameObject.FindGameObjectWithTag("Manager");
     }
 
     private void FixedUpdate() {
@@ -62,5 +64,7 @@ public class Seeker : MonoBehaviour {
 
     public void Death() {
         Destroy(gameObject);
+        manager.GetComponent<Spawner>().active -= 1;
+        manager.GetComponent<Spawner>().kills += 1;
     }
 }

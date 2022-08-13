@@ -9,7 +9,7 @@ public class JeffController : MonoBehaviour {
     private Move selectedCommand = Move.GodSpeed;
     private Rigidbody2D playerRb, rb;
     private Collider2D playerCol, col;
-    private GameObject signal;
+    private GameObject signal, laser;
     [SerializeField]private bool canRunCommand = false; // ##TEMP SERIALIZATION
     public float energyRechargeSpeed = 10.0f, dashSpeed = 1.0f, rotSpeed = 1.0f;
     public float signalRange = 4.0f, dashTime = 1.2f;
@@ -34,6 +34,7 @@ public class JeffController : MonoBehaviour {
         col = GetComponent<BoxCollider2D>();
         cam = Camera.main;
         signal = GetComponentInChildren<RotateAround>().gameObject;
+        laser = GameObject.FindGameObjectWithTag("Laser");
     }
     private void Update() {
         distanceFromPlayer = (playerRb.position - rb.position).magnitude;
@@ -59,6 +60,7 @@ public class JeffController : MonoBehaviour {
             RunCommand();
         } 
         signal.SetActive(energy >= energyRanges[selectedCommand]);
+        laser.SetActive(canRunCommand);
     }
     private void RunCommand() {
         if (selectedCommand == Move.GodSpeed) {

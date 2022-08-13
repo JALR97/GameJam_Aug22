@@ -17,6 +17,13 @@ public class GeneralManager : MonoBehaviour {
         health = 10;
         UpdateUI();
     }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+    }
+
     public void ChgHealth(int diff) {
         health += diff;
         UpdateUI();
