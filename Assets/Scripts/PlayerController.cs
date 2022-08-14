@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();
+        
+        float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
