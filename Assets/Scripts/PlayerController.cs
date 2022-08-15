@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     public float speed = 10f;
     private Rigidbody2D rb;
     private Vector2 movement = new Vector2();
+    public bool canWalk = true;
     private void Update() {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate() {
-        rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
+        if (canWalk) {
+            //rb.MovePosition(rb.position + movement * (speed * Time.fixedDeltaTime));
+            rb.velocity = movement * (speed * Time.fixedDeltaTime);
+        }
     }
 }

@@ -47,6 +47,7 @@ public class JeffController : MonoBehaviour {
         laser = GameObject.FindGameObjectWithTag("Laser");
         tr = GetComponent<TrailRenderer>();
         ps = GetComponent<ParticleSystem>();
+        ps.Stop();
     }
 
     private void Update() {
