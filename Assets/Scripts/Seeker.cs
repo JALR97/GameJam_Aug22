@@ -9,6 +9,12 @@ public class Seeker : MonoBehaviour {
     private bool isRecharging = false, moving = false;
     private GameObject manager;
     private TrailRenderer tr;
+    //color change
+    public Color regularColor, chargedColor;
+    public SpriteRenderer thisRenderer;
+    public float colorChgSpeed;
+    //sounds
+    public AudioSource thisAudioSource;
     private void Start() {
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
@@ -25,6 +31,7 @@ public class Seeker : MonoBehaviour {
             rb.velocity = direction.normalized * chargeSpeed;
             isRecharging = false;
             moving = false;
+            thisAudioSource.Play();
         }
     }
     
@@ -40,7 +47,7 @@ public class Seeker : MonoBehaviour {
                     rb.velocity *= 0;
                     tr.emitting = true;
                 }
-                else { //Not in range, keep persue
+                else { //Not in range, keep pursue
                     moving = true;
                     Rotate(direction);
                     tr.emitting = false;
@@ -48,11 +55,13 @@ public class Seeker : MonoBehaviour {
             }
             else { //Rest before dash not finished
                 transform.localScale -= sizeChange * (60 * Time.deltaTime / rechargeTime);
+                thisRenderer.color = Color.Lerp(thisRenderer.color, regularColor, colorChgSpeed * Time.deltaTime);
                 tr.emitting = true;
             }
         }
         else { //Charging the dash
             transform.localScale += sizeChange * (90 * Time.deltaTime / rechargeTime);
+            thisRenderer.color = Color.Lerp(thisRenderer.color, chargedColor, colorChgSpeed * Time.deltaTime);
             Rotate(direction);
         }
     }

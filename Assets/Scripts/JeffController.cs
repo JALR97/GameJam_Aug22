@@ -1,10 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Jobs.LowLevel.Unsafe;
-using UnityEditor.UIElements;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class JeffController : MonoBehaviour {
@@ -16,12 +12,13 @@ public class JeffController : MonoBehaviour {
     private GameObject signal, laser;
     private ParticleSystem ps;
     private TrailRenderer tr;
-    private bool canRunCommand = false;
+    private bool canRunCommand;
     public float energyRechargeSpeed = 10.0f, dashSpeed = 1.0f, rotSpeed = 1.0f;
     public float signalRange = 4.0f, dashTime = 1.2f;
     private Camera cam;
-    public bool dashing = false;
+    public bool dashing;
     public Slider bar1, bar2;
+    public AudioSource ThisAudioSource;
     
     private enum Move {
         GodSpeed, //0
@@ -101,6 +98,7 @@ public class JeffController : MonoBehaviour {
         dashing = true;
         tr.emitting = true;
         ps.Play();
+        ThisAudioSource.Play();
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Jeff"), LayerMask.NameToLayer("Unit"), true);
         timer = dashTime;
     }

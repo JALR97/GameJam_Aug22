@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
-using System.Net.Mime;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class Health : MonoBehaviour {
     private int health;
@@ -13,6 +11,9 @@ public class Health : MonoBehaviour {
     public float flashTime, knockTime;
     public Color flashColor, regularColor;
     public PlayerController playerC;
+    //Sound stuff
+    public AudioClip damageSound;
+    public AudioSource thisAudioS;
     private void Awake() {
         HealthReset();
     }
@@ -27,6 +28,12 @@ public class Health : MonoBehaviour {
             yield break;
         }
         
+        //damage sound
+        thisAudioS.pitch = 1;
+        thisAudioS.volume = 1;
+        thisAudioS.PlayOneShot(damageSound);
+        
+        //UI Update
         for (int i = 1; i <= diff; i++) {
             UIpoints.transform.GetChild(health - i).gameObject.SetActive(false);
         }

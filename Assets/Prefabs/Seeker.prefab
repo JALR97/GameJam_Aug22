@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6814555951914181625}
   - component: {fileID: 3005050796689895594}
   - component: {fileID: 679244875899976089}
+  - component: {fileID: -8991470251369128154}
   m_Layer: 6
   m_Name: Seeker
   m_TagString: Enemy
@@ -106,6 +107,11 @@ MonoBehaviour:
   chargeSpeed: 50
   rechargeTime: 20
   chargeDistanceStart: 5
+  regularColor: {r: 0.8980392, g: 0.7294118, b: 0.3137255, a: 1}
+  chargedColor: {r: 0.8980392, g: 0.22813362, b: 0.19936466, a: 1}
+  thisRenderer: {fileID: 6265098337559025207}
+  colorChgSpeed: 3
+  thisAudioSource: {fileID: -8991470251369128154}
 --- !u!50 &6758731062822531151
 Rigidbody2D:
   serializedVersion: 4
@@ -222,15 +228,15 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.8980393, g: 0.7254902, b: 0.30588236, a: 1}
-      key1: {r: 0.2627451, g: 0.5372549, b: 0.6, a: 0}
+      key1: {r: 0.8980393, g: 0.227451, b: 0.20000002, a: 0.03529412}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 17926
-      ctime1: 65535
+      ctime0: 15613
+      ctime1: 51464
       ctime2: 0
       ctime3: 0
       ctime4: 0
@@ -285,6 +291,102 @@ PolygonCollider2D:
     - - {x: 0.4748534, y: -0.27257946}
       - {x: 0.00058642775, y: 0.4939814}
       - {x: -0.4651463, y: -0.265701}
+--- !u!82 &-8991470251369128154
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4693375382192249875}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1605b51e568e4aa40a903e56ae239cfc, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.883
+  m_Pitch: 1.53
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4808119538189359045
 GameObject:
   m_ObjectHideFlags: 0
