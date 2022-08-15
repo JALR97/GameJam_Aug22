@@ -16,9 +16,11 @@ public class Health : MonoBehaviour {
     public AudioSource thisAudioS;
     private void Awake() {
         HealthReset();
+        
     }
     public void HealthReset() {
         health = 10;
+        Time.timeScale = 1;
     }
     public void Damage(int dmg) {
         StartCoroutine(ProcessDamage(dmg));

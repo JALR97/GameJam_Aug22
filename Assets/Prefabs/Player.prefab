@@ -130,7 +130,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 098c50d77ea3a2d46aee67ad33d39cae, type: 3}
   thisAudioS: {fileID: 7305294511560461989}
   volumeModifier: 0.15
-  volumeBase: 0
+  volumeBase: 0.9
   pitchModifier: 0.2
 --- !u!70 &4313836081962726163
 CapsuleCollider2D:

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Laser
   - Spawner
+  - Glass
   layers:
   - Default
   - TransparentFX

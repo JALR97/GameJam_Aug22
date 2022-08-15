@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.PlayerLoop;
 
 public class PlayerController : MonoBehaviour {
@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour {
     [Range(0.1f, 0.5f)]
     public float pitchModifier;
     private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }else if (Input.GetKeyDown(KeyCode.R)) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement.Normalize();

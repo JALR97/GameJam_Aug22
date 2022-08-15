@@ -1,22 +1,23 @@
 using System.Collections;
+
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
-    private GameObject[] Spawners;
+    public GameObject[] Spawners;
     public GameObject Seeker;
     public int kills = 0, active;
-    void Start() {
-        Spawners = GameObject.FindGameObjectsWithTag("Spawner");
-    }
+
 
     public void deadSeeker() {
         kills += 1;
         active -= 1;
     }
     void Update() {
-        if (active <= 0) {
-            active = Mathf.Clamp(kills / 3 + 1, 1, 8);
-            StartCoroutine(Spawn());
+        if (Spawners[0].activeSelf) {
+            if (active <= 0) {
+                active = kills / 4 + 3; 
+                StartCoroutine(Spawn());
+            }
         }
     }
 

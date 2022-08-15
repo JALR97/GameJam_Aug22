@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   energy: 1
-  energyRechargeSpeed: 20
+  energyRechargeSpeed: 25
   dashSpeed: 55
   rotSpeed: 55
   signalRange: 3
@@ -6828,7 +6828,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9137007744e28b140b5955b3fef4ec46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3a82cac4b7f3d54688be642bb6aae00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
