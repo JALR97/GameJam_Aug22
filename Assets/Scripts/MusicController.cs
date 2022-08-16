@@ -14,6 +14,10 @@ public class MusicController : MonoBehaviour {
     public void Switch() {
         StartCoroutine(SwitchInternal());
     }
+    public void Stop() {
+        thisAudioSource.clip = songs[0];
+        thisAudioSource.loop = false;
+    }
     IEnumerator SwitchInternal() {
         thisAudioSource.loop = false;
         while (thisAudioSource.isPlaying) {

@@ -11,6 +11,9 @@ public class Health : MonoBehaviour {
     public float flashTime, knockTime;
     public Color flashColor, regularColor;
     public PlayerController playerC;
+    //gameover stuff
+    public GameObject deathUI;
+    public MusicController musicC;
     //Sound stuff
     public AudioClip damageSound;
     public AudioSource thisAudioS;
@@ -46,6 +49,10 @@ public class Health : MonoBehaviour {
             health = 0;
             Time.timeScale = 0;
             Debug.Log("Game over");
+            GameObject.FindGameObjectWithTag("Jeff").SetActive(false);
+            deathUI.SetActive(true);
+            musicC.Stop();
+            //GameObject.FindGameObjectWithTag("Player").SetActive(false);
         }
         
         //show damage and invincibility frames

@@ -19,7 +19,6 @@ public class JeffController : MonoBehaviour {
     public bool dashing;
     public Slider bar1, bar2;
     public AudioSource ThisAudioSource;
-    private bool first = true;
     
     private enum Move {
         GodSpeed, //0
@@ -102,14 +101,11 @@ public class JeffController : MonoBehaviour {
         ThisAudioSource.Play();
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Jeff"), LayerMask.NameToLayer("Unit"), true);
         timer = dashTime;
-        first = false;
     }
     private void Rotate(Vector2 direction) {
-        if (!first) {
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion qDest = Quaternion.Euler(new Vector3(0, 0, angle));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, qDest, 10 * rotSpeed * Time.deltaTime);
-        }
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion qDest = Quaternion.Euler(new Vector3(0, 0, angle));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, qDest, 10 * rotSpeed * Time.deltaTime);
     }
     IEnumerator DelayedTrail() {
         yield return new WaitForSeconds(0.8f);
